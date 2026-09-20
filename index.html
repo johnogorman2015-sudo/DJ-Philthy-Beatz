@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DJ Philthy Beatz - Song Requests</title>
+<style>
+body { background:#0D0D0F; color:white; font-family:Arial; margin:0; padding:20px; }
+h1 { color:#00A8FF; text-align:center; }
+input, button {
+  width:100%; padding:12px; margin:10px 0;
+  border:2px solid #00A8FF; background:#121214; color:white;
+}
+button { background:#00A8FF; font-weight:bold; }
+#requests { margin-top:20px; }
+.request {
+  border:2px solid #9B00FF; padding:10px; margin:10px 0;
+  background:#121214;
+}
+</style>
+</head>
+<body>
+
+<h1>Request a Song</h1>
+
+<input id="song" placeholder="Song Title">
+<input id="artist" placeholder="Artist">
+<button onclick="addRequest()">Submit Request</button>
+
+<div id="requests"></div>
+
+<script>
+function addRequest() {
+  let song = document.getElementById("song").value;
+  let artist = document.getElementById("artist").value;
+
+  if(song.trim()=="" || artist.trim()=="") return;
+
+  let div = document.createElement("div");
+  div.className = "request";
+  div.innerHTML = `<strong>${song}</strong><br>${artist}`;
+
+  document.getElementById("requests").appendChild(div);
+
+  document.getElementById("song").value = "";
+  document.getElementById("artist").value = "";
+}
+</script>
+
+</body>
+</html>
